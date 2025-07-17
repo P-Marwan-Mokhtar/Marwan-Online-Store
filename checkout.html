@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/icon.png" />
+    <link rel="stylesheet" href="main.css" />
+    <title>Marwan | Online store</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="cart" id="cart">
+      <div class="top-cart">
+        <h3>Cart Items : <span class="total_product_num">0</span></h3>
+        <i class="fa-regular fa-circle-xmark" onclick="open_cart()"></i>
+      </div>
+      <div class="items_in_cart" id="cart_items"></div>
+      <div class="bottom-cart">
+        <div class="subtotal">
+          <p class="subtotal_num">subtotal</p>
+          <span class="total_price">$0</span>
+        </div>
+        <div class="checkout">
+          <button class="checkout-btn">Checkout</button>
+          <button class="shopnow" onclick="open_cart()">Shop Now</button>
+        </div>
+      </div>
+    </div>
+    <header>
+      <div class="top-header">
+        <div class="container">
+          <div class="icon">
+            <a href=""><img src="img/icon.png" alt="" /></a>
+            <div class="name">
+              <a href=""><h1>Marwan</h1></a>
+              <span><span>Online</span> Shop</span>
+            </div>
+          </div>
+
+          <div class="search">
+            <select id="category" name="category">
+              <option value="All Categories">All Categories</option>
+              <option value="Electronics & Digital">
+                Electronics & Digital
+              </option>
+              <option value="Phones & Tablet">Phones & Tablet</option>
+              <option value="Fashion & Clothings">Fashion & Clothings</option>
+              <option value="Television & Monitor">Television & Monitor</option>
+              <option value="Jewelry & Watches">Jewelry & Watches</option>
+              <option value="Washing Machine">Washing Machine</option>
+              <option value="Toys & Hobbies">Toys & Hobbies</option>
+            </select>
+            <hr />
+
+            <input type="text" placeholder="Search For Product" /><button>
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+          <div class="icons">
+            <div class="icon">
+              <i class="fa-regular fa-heart"></i><span class="span-1">0</span>
+            </div>
+
+            <div class="icon" onclick="open_cart()">
+              <i class="fa-solid fa-cart-shopping"></i
+              ><span class="span-2">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-header">
+        <div class="container">
+          <div class="nav">
+            <span onclick="open_Menu()" class="open-menu"
+              ><i class="fa-solid fa-bars"></i
+            ></span>
+            <div class="category">
+              <div class="category_btn" onclick="open_categ_list()">
+                <i class="fa-solid fa-bars"></i>
+                <p>Browse category</p>
+                <i class="fa-solid fa-angle-down"></i>
+              </div>
+              <div class="category_nav_list">
+                <a href="">Top 10 Offers</a>
+                <a href="">Electronics & Digita</a>
+                <a href="">Phones & Tablet</a>
+                <a href="">Fashion & Clothings</a>
+                <a href="">Telivsion & Monitor</a>
+                <a href="">Jewelry & Watches</a>
+                <a href="">Toys & Hobbies</a>
+              </div>
+            </div>
+
+            <ul class="nav-links">
+              <span class="close-menu" onclick="open_Menu()">
+                <i class="fa-regular fa-circle-xmark"></i>
+              </span>
+              <li><a href="index.html" class="active">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Accesories</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="login-btn">
+            <a class="btn">
+              Login<i class="fa-solid fa-right-to-bracket"></i>
+            </a>
+            <a class="btn"> Sign Up <i class="fa-solid fa-user-plus"></i> </a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="checkout-order">
+      <form
+        id="form_contact"
+        method="post"
+        action="https://script.google.com/macros/s/AKfycbyD-YvnAOreTdInNFfdg_y434N4ubEFkRZun8NCtiOzC057hpnExVQF03Cb2iXvdJeK/exec"
+      >
+        <input type="hidden" name="items" id="items" />
+        <input type="hidden" name="total price" id="total_price" />
+        <input type="hidden" name="count items" id="count_items" />
+        <div class="container">
+          <div class="order-summary">
+            <h1>Order Summary</h1>
+            <div class="items_in_cart" id="checkout-items"></div>
+            <div class="order-details">
+              <div class="subtotal">
+                <p>Subtotal :</p>
+                <span class="subtotal_checkout"></span>
+              </div>
+              <div class="subtotal">
+                <p>Shiping :</p>
+                <span> $ 20.00</span>
+              </div>
+
+              <div class="subtotal">
+                <p>Total :</p>
+                <span class="total_checkout"></span>
+              </div>
+            </div>
+            <button class="place-order" type="submit">Place Order</button>
+          </div>
+          <div class="right-div">
+            <div class="delivery-address">
+              <div class="head-adress">Delivery Address</div>
+              <div class="top-content">
+                <div class="email input-checkout">
+                  <span>Email</span>
+                  <input
+                    type="email"
+                    placeholder="Enter Your Email"
+                    name="Email"
+                    required
+                  />
+                </div>
+                <div class="email input-checkout">
+                  <span>Name</span>
+                  <input
+                    type="text"
+                    placeholder="Enter Your Name"
+                    required
+                    name="Name"
+                    max="15"
+                  />
+                </div>
+                <div class="email input-checkout">
+                  <span>Address</span>
+                  <input
+                    type="text"
+                    placeholder="Enter Your Password"
+                    required
+                    name="Address"
+                    max="40"
+                  />
+                </div>
+                <div class="email input-checkout">
+                  <span>Phone</span>
+                  <input
+                    type="number"
+                    placeholder="Enter Your Number"
+                    name="Phone"
+                   max="12"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="coupon">
+              <div class="head-adress">Coupon Code</div>
+              <div class="input-checkout">
+                <span>Coupon Code</span>
+                <input type="text" placeholder="Enter Your Coupon Code" />
+                <div class="button-coupon"><button>Apply Coupon</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="message">
+      <div class="details-message">
+        <img src="img/checked.png" alt="">
+        <p>Your Purchase was successfull</p>
+        <p class="Purchase">your Purchase will arrive soon.</p>
+       
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <div class="big-row">
+          <div class="icon">
+            <a href=""><img src="img/icon.png" alt="" /></a>
+            <div class="name">
+              <a href=""><h1>Marwan</h1></a>
+              <span><span>Online</span> Shop</span>
+            </div>
+          </div>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi,
+            vero?
+          </p>
+          <div class="btns">
+            <a href="#"><i class="fa-solid fa-phone"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+        <div class="row">
+          <span>Find It Fast</span>
+          <div class="links">
+            <a href="#"
+              ><i class="fa-solid fa-caret-right"></i> Laptops & Computers
+            </a>
+            <a href="#"
+              ><i class="fa-solid fa-caret-right"></i> Smart Phones & Tablets</a
+            >
+            <a href="#"><i class="fa-solid fa-caret-right"></i> TV & Audio</a>
+            <a href="#"><i class="fa-solid fa-caret-right"></i> Appliances</a>
+            <a href="#"
+              ><i class="fa-solid fa-caret-right"></i> Jewelry & Watches</a
+            >
+          </div>
+        </div>
+        <div class="row">
+          <span>Quick Links</span>
+          <div class="links">
+            <a href="#"
+              ><i class="fa-solid fa-caret-right"></i> Your Account
+            </a>
+            <a href="#"
+              ><i class="fa-solid fa-caret-right"></i> Returns & Exchanges</a
+            >
+            <a href="#"
+              ><i class="fa-solid fa-caret-right"></i> Shipping & Delivery</a
+            >
+            <a href="#"
+              ><i class="fa-solid fa-caret-right"></i> Estimated Delivery
+              Time</a
+            >
+            <a href="#"
+              ><i class="fa-solid fa-caret-right"></i> Purchase Hisotry</a
+            >
+          </div>
+        </div>
+        <div class="row">
+          <span>Service us</span>
+          <div class="links">
+            <a href="#"
+              ><i class="fa-solid fa-caret-right"></i> Support Center</a
+            >
+            <a href="#"
+              ><i class="fa-solid fa-caret-right"></i> Term & Conditions</a
+            >
+            <a href="#"
+              ><i class="fa-solid fa-caret-right"></i> Privacy Policy</a
+            >
+            <a href="#"><i class="fa-solid fa-caret-right"></i> Help</a>
+            <a href="#"><i class="fa-solid fa-caret-right"></i> FAQS</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <p>© <span>Marwan Store.</span> All Rights Reserved.</p>
+          <div class="payment_img">
+            <img src="img/payment_method.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/submit-checkout.js"></script>
+  </body>
+</html>

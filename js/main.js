@@ -120,16 +120,7 @@ function UpdateCart() {
     }
   });
 
-  let product_cart = document.querySelector(".product-cart");
-  let checkout_btn = document.getElementById("checkout-btn");
-  let shop_now = document.querySelector(".shopnow");
-  if (product_cart) {
-    checkout_btn.style.display = "block";
-    shop_now.classList.remove("active");
-  } else {
-    checkout_btn.style.display = "none";
-    shop_now.classList.add("active");
-  }
+
 
   let total_product_num = document.querySelector(".total_product_num");
 
@@ -148,7 +139,17 @@ function UpdateCart() {
     subtotal_checkout.innerHTML = `$ ${total_price}`;
     total_checkout.innerHTML = `$ ${total_price + 20}`;
   }
-
+  let product_cart = document.querySelector(".product-cart");
+  let checkout_btn = document.getElementById("checkout-btn");
+  let shop_now = document.querySelector(".shopnow");
+  if (product_cart) {
+    checkout_btn.style.display = "block";
+    shop_now.classList.remove("active");
+  } else {
+    checkout_btn.style.display = "none";
+    shop_now.classList.add("active");
+  }
+  
   let plus = document.querySelectorAll(".plus");
 
   let minus = document.querySelectorAll(".minus");

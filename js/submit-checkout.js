@@ -4,16 +4,12 @@ let form = document.getElementById("form_contact");
 let message = document.querySelector(".message");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
+message.style.display ="flex"
   fetch(scripturl, {
     method: "post",
     body: new FormData(form),
   })
     .then((response) => {
-      setTimeout(() => {
-        message.style.display = "flex";
-
-      }, 0);
 
       setTimeout(() => {
         localStorage.removeItem("cart");

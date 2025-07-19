@@ -14,7 +14,7 @@ message.style.display ="flex"
       setTimeout(() => {
         localStorage.removeItem("cart");
         window.location.replace("index.html");
-      }, 3000);
+      }, 0);
     })
     .catch((error) => console.error("error", error.message));
 });

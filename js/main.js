@@ -187,35 +187,6 @@ function UpdateCart() {
   hide_Checkout();
 }
 
-// Form Submission
-const form = document.getElementById("form_contact");
-if (form) {
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const message = document.querySelector(".message");
-    const place_order = document.querySelector(".place-order");
-
-    if (message) message.style.display = "flex";
-    if (place_order) place_order.disabled = true;
-
-    fetch(scripturl, {
-      method: "post",
-      body: new FormData(form),
-    })
-      .then((response) => {
-        setTimeout(() => {
-          localStorage.removeItem("cart");
-          window.location.replace("index.html");
-        }, 3000);
-      })
-      .catch((error) => {
-        console.error("error", error.message);
-        if (place_order) place_order.disabled = false;
-        if (message) message.style.display = "none";
-      });
-  });
-}
-
 // Initialize
 fetch("products.json")
   .then((response) => response.json())
